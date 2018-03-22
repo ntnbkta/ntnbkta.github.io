@@ -1,8 +1,368 @@
+
 <!DOCTYPE html>
 <html>
-<body>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
 
-<p>Capture Video: <input type="file" name="upload" accept="video/mp4,video/x-m4v,video/x-flv,video/*" multiple> 
+    <title> Browser Tab Tests </title>
 
-</body>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- all scripts should be below this point -->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+  </head>
+  <body>
+
+    <h1>Browser Tabs Test</h1>
+    <p>
+        HTML and JavaScript provide different ways for tabs to be opened and
+        destroyed. This page is meant to test that those are all working in
+        the secure browser.
+    </p><br />
+
+<section>
+        <h3>Anchor Elements</h3>
+
+        <dl>
+            <dt>Uses of the "&lt;a href="..."&gt; ... &lt;/a&gt;" element to create tabs</dt><br />
+
+
+            <dd>
+                Open static link with target = _blank - static meaning it is in the original html and
+                not dynamically loaded after the onload event<br />
+                <a href="simple_tab.html" target="_blank">Clicking me should open a tab</a>
+            </dd> <br />
+
+            <dd>
+                Open dynamic link with target = _blank - dynamic meaning the link was added after the
+                onload event <br />
+                <button class="btn btn-default create-sibling-link">Create Link</button>
+            </dd><br />
+
+            <dd>
+                Open a static link with target equalling a custom window name. When using a custom
+                window name in the target the expected result is a new tab opens and window.name = [yourCustomName]<br />
+                <a href="simple_tab.html" target="test-named-tab"> Open tab with window.name = "test-named-tab" </a>
+            </dd>
+
+        </dl>
+
+        <script>
+            /**
+            Handles the creating a dynamic link
+            */
+            (function(){
+                var count = 0;
+                $('.create-sibling-link').on('click', function(){
+                    $(this).siblings('a').remove().end().after('<a style="padding-left: 30px;" href="simple_tab.html" target="_blank">Dynamic Link #' + ++count + '</a>');
+                });
+            })();
+
+        </script>
+
+    </section><br />
+
+    <section>
+        <h3>Anchor Elements</h3>
+
+        <dl>
+            <dt>Uses of the "&lt;a href="..."&gt; ... &lt;/a&gt;" element to create tabs</dt><br />
+
+
+            <dd>
+                Open static link with target = _blank - static meaning it is in the original html and
+                not dynamically loaded after the onload event<br />
+                <a href="simple_tab.html" target="_blank">Clicking me should open a tab</a>
+            </dd> <br />
+
+            <dd>
+                Open dynamic link with target = _blank - dynamic meaning the link was added after the
+                onload event <br />
+                <button class="btn btn-default create-sibling-link">Create Link</button>
+            </dd><br />
+
+            <dd>
+                Open a static link with target equalling a custom window name. When using a custom
+                window name in the target the expected result is a new tab opens and window.name = [yourCustomName]<br />
+                <a href="simple_tab.html" target="test-named-tab"> Open tab with window.name = "test-named-tab" </a>
+            </dd>
+
+        </dl>
+
+        <script>
+            /**
+            Handles the creating a dynamic link
+            */
+            (function(){
+                var count = 0;
+                $('.create-sibling-link').on('click', function(){
+                    $(this).siblings('a').remove().end().after('<a style="padding-left: 30px;" href="simple_tab.html" target="_blank">Dynamic Link #' + ++count + '</a>');
+                });
+            })();
+
+        </script>
+
+    </section><br />
+
+
+    <section>
+        <h3>Form Elements</h3>
+
+        <dl>
+            <dt>Uses of the "&lt;form action="..." target="_blank"&gt; ... &lt;/a&gt;" element target to create tabs</dt><br />
+
+
+            <dd>
+                The expected result is that by adding a target to forms they act similar to
+                anchor elements but using the action url instead of an href. Also like anchors
+                we use taget="_blank" as a means to open a new tab
+
+                <form action="form_submit_tab.html" method="GET" target="_blank">
+                    <input type="text" name="prop1" value="arbitrary value"/>
+                    <input type="submit" name="submit_blank" value="Submit _blank style!" class="btn btn-default"/>
+                </form>
+
+            </dd> <br />
+            <dd>
+                Users can also use a custom target to open a new named tab. Once that tab is opened,
+                submitting this should always be passed to this tab with the same name.
+                <form action="form_submit_tab.html" method="GET" target="named-tab-for-form">
+                    <input type="text" name="prop1" value="arbitrary value"/>
+                    <input type="submit" name="submit_custom_target" value="Submit custom tab name style!" class="btn btn-default"/>
+                </form>
+            </dd>
+
+        </dl>
+
+    </section><br />
+
+
+    <section>
+        <h3>window.open() API</h3>
+
+        <dl>
+            <dt>Uses of window.open to create tabs</dt><br />
+            <dd>
+                Open a new tab by passing no parameters to win.open - should open about:blank<br />
+                <button class="btn btn-default blank-win-open"> window.open() </button>
+            </dd><br />
+            <dd>
+                Open a new tab by passing a url and the value of the new window's "name" property <br />
+                <button class="btn btn-default simple-win-open"> window.open(url, name) </button>
+            </dd><br />
+            <dd>
+                When we do "var win = window.open()" the "win" variable should have a reference to the newly created window
+                context (tab)<br />
+                <button class="btn btn-default simple-win-open-ref"> window.open(url, name) return new window ref</button>
+            </dd><br />
+            <dd>
+                In addition to returning a reference, if our use of window.open opens a url of a different origin (violating
+                the cross origin policy) then we are suppose to be returning an empty window object that has the safe properties
+                only - such as win.name<br />
+                <button class="btn btn-default cop-win-open-ref"> window.open('http://google.com', name) XOP Check</button><br />
+                <i><b>Note:</b> this is a <u>very important</u> test! If we implement this wrong we introduce easy XSS attacks into the browser.</i>
+            </dd><br />
+
+            <dd>
+                Some customers have pages that are opened and those pages facilitate the win.open call. So the flow is, open page A
+                and page A will have a window.open('page B') which will open the desired destination - page B. Think of it as a proxy. By nature
+                of what some WebView api's allow, we need to make sure our win.open override is present before the win.open gets called
+                on the proxying page otherwise our browser breaks.<br />
+                <a href="proxy_win_open.html" target="_blank">Open Proxy Page</a><br />
+                <i>How we get to the proxying page does not matter just that immediately invoking win.open on the proxy works as expected</i>
+            </dd>
+
+        </dl>
+
+        <script>
+
+            (function(){
+
+                /**
+                blank window.open request
+                */
+                $('.blank-win-open').on('click', function(){
+                    window.open();
+                });
+
+
+                /**
+                Simple window.open request
+                */
+                $('.simple-win-open').on('click', function(){
+                    window.open('simple_tab.html', 'named-tab');
+                });
+
+
+
+                /**
+                 window.open should return a reference to the new window
+                 NOTE: window.open has to abide by the same origin policy so 3 things can happen
+                 1. window context was not created so win.open returns null
+                 2. violating origin policy : window context returned a window reference for the new context but
+                    since we are violating the origin policy, we are returned an empty window object.
+                3. No violations, win.open returns us the full window object as expected
+                */
+                $('.simple-win-open-ref').on('click', function(){
+                    var ref = window.open('simple_tab.html', 'named-win-open-ref-test');
+
+                    // we are only testing to make sure a context is open. We don't
+                    // care to test the cross origin problem here
+                    if(!ref || ref.name !== 'named-win-open-ref-test'){
+                        alert('Failed! Reference to new window not returned');
+                    }else{
+                        $(this).siblings('span').remove().end().after('<span class="test-pass-message">Test Passed - reference returned</span>');
+                    }
+                });
+
+
+
+
+                /**
+                Purely to test the cross origin policy and making sure our implementation
+                does not give us reference to a window object with a dom that violates
+                the cross origin policy
+                */
+                $('.cop-win-open-ref').on('click', function(){
+
+                    //intentionally open a site which violates cross origin policy
+                    var ref = null,
+                        dom = null,
+                        head = null;
+
+                    try {
+                        ref = window.open('http://google.com', 'cop-ref-test');
+                        // see if we were given access to the window's dom
+                        // some implementations return the document as an empty fragment
+                        // until it the dom is fully loaded. So we will see if the head section
+                        // exists and if it does we assume it is the fragment unless there are child nodes.
+                        // If there are child nodes we assume that means we have cross origin access to the dom - bad
+                        dom = ref && ref.document && (head = $(ref.document).find('head')[0]) && head.childNodes.length !== 0 ;
+                    }catch (e){
+                        ref = {};
+                        dom = null;
+                    }
+
+                    // We expect an empty window object
+                    // not a null object or a window object with access to the dom
+
+                    if( !ref ){
+                        alert('Failed! Reference to new COP violoation window not returned - should be an empty object');
+                    }else if( dom ){
+                        alert('Failed! Reference returned but it gave access to the DOM - should be an empty object');
+                    }else{
+                        $(this).siblings('span').remove().end().after('<span class="test-pass-message">Test Passed - empty reference returned</span>');
+                    }
+                });
+
+            })();
+        </script>
+
+    </section>
+
+
+    <section>
+
+        <h3>window.opener API</h3>
+        <dl>
+            <dt>
+                The counterpart to win.open is the win.opener. This is a reference on the new page
+                to the window object of the page that opened it. The opener "win.open"s a page.
+            </dt><br />
+            <dd>
+                Simple window.open call and the opened page will check for reference to the opener.<br />
+                <button class="btn btn-default simple-win-opener-check">Open win.opener Check</button><br />
+                <i><b>Note:</b> this checks immediately for win.opener access - before dom is finished parsing.</i><br /><br />
+            </dd><br />
+            <dd>
+                win.opener has to obide by the same origin policy as well. This test however, requires
+                us to open a page from a different origin that we know uses win.opener and <b>that reference should not work </b>
+                because we are breaking cross origin policy. Since there is a dependency on a third party site, I will use
+                sean-roberts.com/BrowserTests/tabs/cop_opener_check.html <br />
+                <button class="btn btn-default cop-win-opener-check">XOP win.opener Check</button> URL that has a win.opener check: <input type="text" value="http://sean-roberts.com/BrowserTests/tabs/cop_opener_check.html" /><br />
+            </dd>
+        </dl>
+
+        <script>
+
+            (function(){
+                $('.simple-win-opener-check').on('click', function(){
+                    var ref;
+                    $(document.body).removeAttr('class').addClass('opener-hook');
+                    ref = window.open('opener_check.html');
+                });
+
+                $('.cop-win-opener-check').on('click', function(){
+                    var ref;
+                    $(document.body).removeAttr('class').addClass('xop-opener-hook');
+                    ref = window.open($(this).siblings('input').val());
+                });
+            })();
+
+        </script>
+
+    </section>
+
+
+    <section>
+
+        <h3>window.close API</h3>
+        <dl>
+            <dt>
+                window.close is an API that allows us to close a given window context.
+            </dt><br />
+            <dd>
+                We will use window.open to open a tab and get the new reference, then use win.close via that reference<br />
+                <button class="btn btn-default simple-win-close-check">win.close Check</button><br />
+                <i>
+                    <b>Note:</b> the assumption is made that being able to close an open window context means that
+                    window.close functions properly and is scoped correctly to the window in which close is called.
+                    Meaning, we should not need to test window.close on this page if the case above is working correctly
+                    because it is the more complicated case that builds on top of the basic "close current page" concept
+                </i>
+            </dd>
+        </dl>
+
+        <script>
+
+            (function(){
+                $('.simple-win-close-check').on('click', function(){
+                    var that = this,
+                        ref = window.open('simple_tab.html', 'close_check_tab');
+
+                    if(ref && typeof ref.close === 'function'){
+
+                        // give some time to load page
+                        setTimeout(function(){
+
+                            ref.close();
+
+                            //give some time to unload
+                            setTimeout(function(){
+                                    if(ref.window){
+                                        alert('Failed, we seem to still have a living reference to the window we tried to destroy');
+                                    }else {
+                                        $(that).siblings('span').remove().end().after('<span class="test-pass-message">Test Passed - we removed the reference to the window</span>');
+                                    }
+                            }, 200);
+
+                        }, 300);
+                    }else {
+                        alert('Failed, we were never given a reference to the window');
+                    }
+                });
+
+            })();
+
+        </script>
+
+    </section>
+
+
+
+  </body>
 </html>

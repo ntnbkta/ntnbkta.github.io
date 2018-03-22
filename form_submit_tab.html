@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+    <title> Proxy call to win.open </title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="style.css" />
+
+
+    <!-- all scripts should be below this point -->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+    <script>
+
+        function getQuery( value ) {
+
+            value = value.split('?').length > 0 ? value.split('?')[1]: value;
+
+            var
+                // Object that holds names => values.
+                params = {},
+                // Get query string pieces (separated by &)
+                pieces = value.split('&'),
+                // Temporary variables used in loop.
+                pair, i, l;
+
+                // Loop through query string pieces and assign params.
+                for (i = 0, l = pieces.length; i < l; i++) {
+                    pair = pieces[i].split('=', 2);
+                    // Repeated parameters with the same name are overwritten. Parameters
+                    // with no value get set to boolean true.
+                    params[decodeURIComponent(pair[0])] = (pair.length == 2 ?
+                        decodeURIComponent(pair[1].replace(/\+/g, ' ')) : true);
+                }
+
+                return params;
+        }
+
+        var query = getQuery(location.href);
+
+        $(function(){
+            $('body').addClass('success').find('h1').html(
+                'New tab created and found a GET query with: <br /><br />' + JSON.stringify(query) + '<br /><br />' +
+                (window.name ? 'With a win.name of:<br/>' + window.name : 'With no win.name')
+            );
+        });
+
+    </script>
+
+  </head>
+  <body>
+
+    <h1>This page was not passed any parameters</h1>
+
+  </body>
+</html>

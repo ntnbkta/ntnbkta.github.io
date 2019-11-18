@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <p> FRAME 2 <p>
+        <form id="FRAME2Form" action="/action_page.php" target="akhil">
+            First name: <input type="text" name="fname"><br>
+                Last name: <input type="text" name="lname"><br><br>
+                    <input type="button" onclick="myFunction()" value="Submit form">
+        </form>
+        
+        <a href="#" onclick="myFunction()">should open new tab because of form submit </a>
+            
+    </body>
+    
+    <script>
+        function myFunction() {
+            document.getElementById("FRAME2Form").submit();
+        }
+    </script>
+</html>

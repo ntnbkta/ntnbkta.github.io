@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<head>
+    <script>
+        function myFunction() {
+            var blob = new Blob(["Hello, world!"], { type: 'text/plain' });
+            var blobUrl = URL.createObjectURL(blob);
+            window.open(blobUrl,"blobWindow");
+        }
+    </script>
+</head>
+<html>
+    <button onclick="myFunction()">window.open(blob url)</button>
+</html>

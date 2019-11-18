@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width">
+                <title>JS Bin</title>
+    </head>
+    <body>
+        <script>
+            var updateFoo = function() {
+                var foo = window.sessionStorage.getItem('foo');
+                document.getElementById('foo-val').textContent = foo;
+            };
+        
+        var setFoo = function() {
+            window.sessionStorage.setItem('foo', 'bar');
+            updateFoo();
+        };
+        
+        var clearFoo = function() {
+            window.sessionStorage.removeItem('foo');
+            updateFoo();
+        };
+        
+        window.onload = updateFoo;
+        </script>
+        <p>Current value of foo: <span id="foo-val"></span></p>
+        <p><a href="#" target="_blank">Open this page in new tab</a></p>
+        <button onclick="setFoo();">Set foo to bar</button>
+        <button onclick="clearFoo();">Clear foo</button>
+    </body>
+</html>

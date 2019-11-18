@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h2>Tests for updating window location.</h2>
+        <hr>
+        <h1></h1>
+        <p>Click the button to open an about:blank page in a new browser window .Window should automatically update its location to google.com  by updating window.location</p>
+        
+        <button onclick="clickMe()">Click Me 1</button>
+        
+        <hr>
+
+        <h1></h1>
+        <p>Click the button to open an about:blank page in a new browser window .Window should automatically update its location to google.com  by updating window.location.href</p>
+        
+        <button onclick="windowLocationHref()">Click Me 2</button>
+        <hr>
+        
+        <h1></h1>
+        <p>Click the button to open an about:blank page in a new browser window .Window should automatically update its location to google.com  by updating window.document.location</p>
+        
+        <button onclick="windowDocumentLocation()">Click Me 3</button>
+        <hr>
+        
+        <h1></h1>
+        <p>Click the button to open an about:blank page in a new browser window .Window should automatically update its location to google.com  by updating window.document.location.href</p>
+        
+        <button onclick="windowDocumentLocationHref()">Click Me 4</button>
+        <hr>
+
+        <script>
+            function clickMe() {
+                var myWindow = window.open("", "");
+                myWindow.location = "http://www.google.com"
+            }
+        
+        function windowLocationHref() {
+            var myWindow = window.open("", "");
+            myWindow.location.href = "http://www.google.com"
+        }
+        
+        function windowDocumentLocation() {
+            var myWindow = window.open("", "");
+            myWindow.document.location = "http://www.google.com"
+        }
+        
+        function windowDocumentLocationHref() {
+            var myWindow = window.open("", "");
+            myWindow.document.location.href = "http://www.google.com"
+        }
+        </script>
+        
+    </body>
+</html>
+

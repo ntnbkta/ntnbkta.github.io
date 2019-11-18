@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <script>
+        function myFunction() {
+            window.awbrowserProperty = "opened from Root window";
+            window.open("./popup.html", "myWindow1", "width=200,height=100");
+        }
+    </script>
+    <body>
+        <div>
+            <p>Root Window</p>
+            </br>
+            <p>Click the button to open popup and test opener property</p>
+            <p>Expected : should show "opened from Root window" </p>
+            <button onclick="myFunction()">open popup</button>
+        </div>
+        </br>
+        <div>
+        <iframe name="iframe1" src="./iframe1.htm" width="500" height="200">
+            <p>Your browser does not support iframes.</p>
+        </iframe>
+        </div>
+
+        </br>
+        <div>
+        <iframe name="iframe2" src="./iframe2.htm" width="500" height="200">
+            <p>Your browser does not support iframes.</p>
+        </iframe>
+        </div>
+
+    </body>
+</html>

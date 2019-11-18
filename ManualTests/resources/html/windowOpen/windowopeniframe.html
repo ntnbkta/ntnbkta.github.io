@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <body bgcolor="#E6E6FA">
+        <p> MAIN HTML <p>
+            <div>
+            <a href="#" onclick="myFunction1()">window.open()</a>
+            <button onclick="myFunction1()">window.open()</button>
+            </br>
+            </br>
+            <a href="#" onclick="myFunction2()">window.open("https://www.google.com")</a>
+            <button onclick="myFunction2()">window.open("https://www.google.com")</button>
+            </br>
+            </br>
+            <a href="#" onclick="myFunction3()">document.write for current window</a>
+            <button onclick="myFunction3()">doc write on current window</button>
+            </br>
+            </br>
+            <button onclick="myFunction4()">open 2 windows (enable popups)</button>
+            </div>
+            </br>
+            </br>
+            </br>
+            </br>
+            <div>
+            <iframe width="600" height="600" src="./windowopenframe1.html">
+                <p>Your browser does not support iframes.</p>
+            </iframe>
+            </div>
+        
+        <script>
+            function myFunction1() {
+                var win = window.open();
+            }
+        
+            function myFunction2() {
+                var win = window.open("https://www.google.com");
+            }
+        
+            function myFunction3() {
+                var myWindow = window.open("", "_self");
+                myWindow.document.write("<p>I replaced the current window.</p>");
+            }
+        
+            function myFunction4() {
+                window.open("http://www.google.com/");
+                window.open("https://www.w3schools.com/");
+            }
+        </script>
+        
+    </body>
+</html>

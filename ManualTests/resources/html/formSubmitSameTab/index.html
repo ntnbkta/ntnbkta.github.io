@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <form action="do_stuff.asp" method="get" target="akhil">
+            <fieldset>
+                <p>Form should be submitted to iframe in same tab.Should not open new tab.</p>
+                First name: <input type="text" name="fname"><br>
+                Last name: <input type="text" name="lname"><br>
+                    <input type="submit" value="Submit">
+            </fieldset>
+        </form>
+        
+        <iframe name="akhil">
+        </iframe>
+        
+    </body>
+</html>

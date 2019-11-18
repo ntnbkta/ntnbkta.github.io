@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script>
+            function myFunction1() {
+                var url = "https://ja.wikipedia.org/wiki/メインページ";
+                window.open(url);
+            }
+        
+        function myFunction2() {
+            var url = "https://www.w3schools.com/action_page.php?fname="+escape("メインページ")+"&lname="+escape("メインページ");
+            window.open(url);
+        }
+        
+        function myFunction3() {
+            var url = encodeURI("https://ja.wikipedia.org/wiki/メインページ");
+            window.open(url);
+        }
+        
+        function myFunction4() {
+            var url = encodeURI("https://www.w3schools.com/action_page.php?fname=メインページ&lname=メインページ");
+            window.open(url);
+        }
+        </script>
+    </head>
+    <body>
+        <p>url has Japanese characters</p>
+        <button onclick="myFunction1()">click Me!</button>
+        
+        <p>escape -> query has Japanese characters</p>
+        <button onclick="myFunction2()">click Me!</button>
+        
+        <p>encodeURI - url has Japanese characters</p>
+        <button onclick="myFunction3()">click Me!</button>
+        
+        <p>encodeURI -> query has Japanese characters</p>
+        <button onclick="myFunction4()">click Me!</button>
+    </body>
+</html>

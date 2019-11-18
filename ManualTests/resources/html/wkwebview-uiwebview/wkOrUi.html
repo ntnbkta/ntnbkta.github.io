@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<script>
+function myFunction() {
+var iOS = (navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false);
+if (window.webkit && window.webkit.messageHandlers) {
+    alert("wkwebview");
+} else {
+alert("UiWebview");
+}
+}
+</script>
+<body>
+​
+<button type="button" onclick=myFunction();>Click Me!</button>
+ 
+</body>
+</html>

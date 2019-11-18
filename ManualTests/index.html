@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+
+<body>
+
+    <center>
+        <h1>Browser Manual Tests</h1>
+    </center>
+
+    </br>
+    </br>
+    </br>
+
+    <h2>Generic Tests</h2>
+    <table>
+        <col width="20">
+        <col width="300">
+        <col width="60">
+
+        <tr>
+            <th>Index</th>
+            <th>Test Description</th>
+            <th>Test link</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Generic tests</td>
+            <td><a href="ms-word:ofv|u|https://infineum.sharepoint.com/sites/iti/EndUser/Shared Documents/zz Felipe test/New document Felipe test.docx">Open Word</a></td>
+        </tr>
+
+
+        <tr>
+            <td>2</td>
+            <td>Test for type of webview : WkWebView or UiWebView</td>
+            <td><a href="resources/html/wkwebview-uiwebview/wkOrUi.html">Generic test 2</a></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>System links : Test links to open other apps in iPhone.</td>
+            <td><a href="resources/html/generic/system_links.html">Generic test 3</a></td>
+        </tr>
+
+
+        <tr>
+            <td>4</td>
+            <td>Chromium test cases. </td>
+            <td><a href="resources/html/chromium/http_server_files">Generic test 4</a></td>
+        </tr>
+
+        <tr>
+            <td>5</td>
+            <td> Session storage test : test to check if session storage is copied to child window </td>
+            <td><a href="resources/html/generic/sessionStorageTest.htm">Generic test 5</a></td>
+        </tr>
+
+        <tr>
+            <td>6</td>
+            <td> Blob url test case </td>
+            <td><a href="resources/html/blob/blob.html">Generic test 6</a></td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>Test to verify crash if picker has no options to select</td>
+            <td><a href="resources/html/UIWebView-picker-crash">Generic test 7</a></td>
+        </tr>
+
+    </table>
+
+    </br>
+    </br>
+
+    <h2>Window open tests</h2>
+    <table>
+        <col width="20">
+        <col width="300">
+        <col width="60">
+        <tr>
+            <th>Index</th>
+            <th>Test Description</th>
+            <th>Test link</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>window open tests. </br>
+            </td>
+            <td><a href="resources/html/windowOpen/windowopeniframe.html">window test 1</a></td>
+        </tr>
+
+        <tr>
+            <td>2</td>
+            <td> window.open Generic </td>
+            <td><a href="resources/html/windowOpen/windowopen-generic.html">window test 2</a></td>
+        </tr>
+
+        <tr>
+            <td>3</td>
+            <td> Blank window open and update window location </td>
+            <td><a href="resources/html/windowOpen/windowopen-location.html">window test 3</a></td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td> window.open : url's with escape/encodeURI</td>
+            <td><a href="resources/html/windowOpen/windowopen-japanese.htm">window test 4</a></td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>window.open and document.write to that new window</td>
+            <td><a href="resources/html/windowOpen/windowopen-docWrite.html">window test 5</a></td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>Test to check if correct window.opener is set in popups</td>
+            <td><a href="resources/html/windowOpen/setWindowOpen/windowOpenerTest.html">window test 6</a></td>
+        </tr>
+    </table>
+
+    </br>
+    </br>
+    <h2>Form submit tests</h2>
+    <table>
+        <col width="20">
+        <col width="300">
+        <col width="60">
+        <tr>
+            <th>Index</th>
+            <th>Test Description</th>
+            <th>Test link</th>
+        </tr>
+
+        <tr>
+            <td>1</td>
+            <td>Tests for form within nested Iframes. </br>
+                Can Also test find in page. Search 'last' and should show 3 search results. </br>
+            </td>
+            <td><a href="resources/html/formSubmit/formIframe.html"> Form test 1</a></td>
+        </tr>
+
+        <tr>
+            <td>2</td>
+            <td>form.submit in same tab's iframe.</td>
+            <td><a href="resources/html/formSubmitSameTab/index.html">Form test 2</a></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Form submit to same page : Submit from frame A to frame B using framesets.</td>
+            <td><a href="resources/html/formSubmit/form-submit-same-page/index.html">Form test 3</a></td>
+        </tr>
+
+    </table>
+    </br>
+    </br>
+    <h2>WKWebView Tests</h2>
+    <table>
+        <col width="20">
+        <col width="300">
+        <col width="60">
+        <tr>
+            <th>Index</th>
+            <th>Test Description</th>
+            <th>Test link</th>
+        </tr>
+
+        <tr>
+            <td>1</td>
+            <td>Test to verify WKWebView's window.webkit</td>
+            <td><a href="resources/html/wkwebviewWebkitTest/test.html"> WKWebView Test 1</a></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Test to verify WKWebView's window.print on parent tab and popup as well</td>
+            <td><a href="resources/html/wkwebviewWindowPrintTest/test.html"> WKWebView Test 2</a></td>
+        </tr>
+    </table>
+    </br>
+    </br>
+    <h2>Auth Tests</h2>
+    <table>
+        <col width="20">
+        <col width="300">
+        <col width="60">
+        <tr>
+            <th>Index</th>
+            <th>Test Description</th>
+            <th>Test link</th>
+        </tr>
+
+        <tr>
+            <td>1</td>
+            <td>NTLM Test</td>
+            <td><a href="resources/html/NTLM/NTLMTest.html">Authentication Test: NTLM (ibrwuser1/A1rW4tch)</a></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>server Trust</td>
+            <td><a href="resources/html/Misc/serverTrust.html">server trust</a></td>
+        </tr>
+    </table>
+    </br>
+    </br>
+    <h2>Misc Tests</h2>
+    <table>
+        <col width="20">
+        <col width="300">
+        <col width="60">
+        <tr>
+            <th>Index</th>
+            <th>Test Description</th>
+            <th>Test link</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2 tabs - anchor tag and window.open. Should open only facebook.com in a new tab</td>
+            <td><a href="resources/html/Misc/2tabs.html">Misc test 1</a></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Cookie checker</td>
+            <td><a href="resources/html/Misc/cookieChecker.html">Misc test 2</a></td>
+        </tr>
+    </table>
+
+</body>
+
+</html>

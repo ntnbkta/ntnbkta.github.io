@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <script>
+        function myFunction() {
+            window.open("./popup.html", "myWindow");
+        }
+    </script>
+    <body>
+        <p> Test for checking wkwebview's window.webkit </p>
+        </br>
+        <p> STEPS to verify :</p>
+        <p> 1. open popup. Popup should show the alert "window.webkit present"</p>
+        <p> 2. close popup from all tabs.</p>
+        <p> 3. open the popup again from tab 1. Popup should show the alert "window.webkit present"</p>
+        </br>
+        <div>
+            <button onclick="myFunction()">open popup</button>
+        </div>
+
+    </body>
+</html>

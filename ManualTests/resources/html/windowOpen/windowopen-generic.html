@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        
+        url: <input type="text" id="urlText">
+            <br/>
+            <br/>
+            <br/>
+            target: <input type="text" id="targetText">
+                
+                <br/>
+                <br/>
+                <p>Click the button to invoke window.open with entered url and target</p>
+                <br/>
+                <button onclick="myFunction()">window.open()</button>
+                
+                <p id="demo"></p>
+                
+                <script>
+                    function myFunction() {
+                        var url = document.getElementById("urlText").value;
+                        var target = document.getElementById("targetText").value;
+                        window.open(url,target)
+                    }
+                </script>
+                
+    </body>
+</html>

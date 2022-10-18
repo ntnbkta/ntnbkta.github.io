@@ -1,0 +1,19 @@
+{
+    "credit_card_users": [
+        {
+            "user_id": 110,
+            "user_name": "John Appleseed",
+            "credit_score": {
+                "score": 836,
+                "on_date": "2012-04-23T18:25:43.511Z",
+                "score_range": {
+                    "worst": 21,
+                    "bad": 20,
+                    "good": 19,
+                    "average": 19,
+                    "excellent": 21
+                }
+            }
+        }
+    ]
+}

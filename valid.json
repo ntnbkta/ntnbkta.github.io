@@ -4,7 +4,7 @@
             "user_id": 110,
             "user_name": "John Appleseed",
             "credit_score": {
-                "score": 836,
+                "score": 420,
                 "on_date": "2012-04-23T18:25:43.511Z",
                 "score_range": [
                     {

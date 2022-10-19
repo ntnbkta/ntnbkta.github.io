@@ -6,13 +6,33 @@
             "credit_score": {
                 "score": 836,
                 "on_date": "2012-04-23T18:25:43.511Z",
-                "score_range": {
-                    "worst": 21,
-                    "bad": 20,
-                    "good": 19,
-                    "average": 19,
-                    "excellent": 21
-                }
+                "score_range": [
+                    {
+                        "min": 300,
+                        "max": 699,
+                        "share_percentage": 20
+                    },
+                    {
+                        "min": 700,
+                        "max": 774,
+                        "share_percentage": 19
+                    },
+                    {
+                        "min": 775,
+                        "max": 799,
+                        "share_percentage": 21
+                    },
+                    {
+                        "min": 800,
+                        "max": 824,
+                        "share_percentage": 19
+                    },
+                    {
+                        "min": 825,
+                        "max": 900,
+                        "share_percentage": 21
+                    }
+                ]
             }
         }
     ]

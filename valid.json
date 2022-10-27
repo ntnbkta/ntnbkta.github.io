@@ -4,13 +4,13 @@
             "user_id": 110,
             "user_name": "John Appleseed",
             "credit_score": {
-                "score": 834,
-                "on_date": "2012-04-10T18:25:43.511Z",
+                "score": 835,
+                "on_date": "2015-04-10T18:25:43.511Z",
                 "score_range": [
                     {
                         "min": 300,
                         "max": 699,
-                        "share_percentage": 20
+                        "share_percentage": 19
                     },
                     {
                         "min": 700,
@@ -25,12 +25,12 @@
                     {
                         "min": 800,
                         "max": 824,
-                        "share_percentage": 19
+                        "share_percentage": 21
                     },
                     {
                         "min": 825,
                         "max": 900,
-                        "share_percentage": 21
+                        "share_percentage": 20
                     }
                 ]
             }

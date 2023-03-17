@@ -8,7 +8,7 @@
     <item>
       <title>Version 23.04</title>
       <enclosure sparkle:os="mac"
-                 url="/Users/nbhaktha/Desktop/New Dump/VMwareWorkspaceONEAdminAssistant.dmg"
+                 url="http://localhost:8080/VMwareWorkspaceONEAdminAssistant.dmg"
                  sparkle:version="23.04"
                  length="48536071"
                  type="application/octet-stream"
